@@ -14,7 +14,7 @@ internal class MaxCharFinderKtTest {
         val result = str.maxChar()
 
         // Then
-        assertEquals("a", "a".maxChar())
+        assertEquals("a", result)
     }
 
     @Test

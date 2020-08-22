@@ -52,13 +52,25 @@ internal class TokenParserTest {
         val result = tokenParser.parse(expression)
 
         // Then
-        assertEquals(1, result)
+        assertEquals(1L, result)
     }
 
     @Test
     fun execute_should_evaluate_expression_binding_as_todo() {
         // Given
         val expression = "binding"
+
+        // When
+        val result = tokenParser.parse(expression)
+
+        // Then
+        assertEquals("TODO", result)
+    }
+
+    @Test
+    fun execute_should_evaluate_expression_binding_with_id_as_todo() {
+        // Given
+        val expression = "bindingId.bindingValue"
 
         // When
         val result = tokenParser.parse(expression)
@@ -148,6 +160,6 @@ internal class TokenParserTest {
         val result = tokenParser.parse(expression)
 
         // Then
-        assertEquals(1, result)
+        assertEquals(1L, result)
     }
 }

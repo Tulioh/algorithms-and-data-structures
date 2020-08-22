@@ -1,7 +1,5 @@
 package com.tuliomagalhaes.tokenizer
 
-import java.io.Reader
-
 class TokenInterpreter(value: String) {
 
     private val reader: TokenReader = TokenReader(value)
@@ -87,7 +85,7 @@ class TokenInterpreter(value: String) {
             tokenOfNumber(value.toDouble(), value)
         } else {
             try {
-                tokenOfNumber(value.toInt(), value)
+                tokenOfNumber(value.toLong(), value)
             } catch (e: NumberFormatException) {
                 null
             }

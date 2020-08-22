@@ -1,10 +1,10 @@
 package com.tuliomagalhaes.tokenizer
 
-import com.tuliomagalhaes.tokenizer.functions.FunctionExecuter
+import com.tuliomagalhaes.tokenizer.function.FunctionResolver
 import java.lang.IllegalStateException
 
 class TokenParser(
-    private val functionExecuter: FunctionExecuter = FunctionExecuter()
+    private val functionResolver: FunctionResolver = FunctionResolver()
 ) {
 
     fun parse(expression: String): Any? {
@@ -43,10 +43,7 @@ class TokenParser(
             }
         } while (nextToken != null)
 
-        return functionExecuter.execute(Function(
-            name = token.value,
-            params = params
-        ))
+        return functionResolver.execute(token.value, params)
     }
 
     private fun parseValue(token: Token): Any? {

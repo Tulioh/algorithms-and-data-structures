@@ -27,6 +27,11 @@ class TokenBoolean(
     value: String
 ) : Token(value, TokenType.BOOLEAN)
 
+class TokenFunction(
+    val params: List<Token?>,
+    value: String
+) : Token(value, TokenType.FUNCTION)
+
 fun tokenOpenBracket() = Token("(", TokenType.OPEN_BRACKET)
 fun tokenOfCloseBracket() = Token(")", TokenType.CLOSE_BRACKET)
 fun tokenOfComma() = Token(",", TokenType.COMMA)
